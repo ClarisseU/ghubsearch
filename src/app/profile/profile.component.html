@@ -9,9 +9,18 @@
                     <img src="{{profile.avatar_url}}" alt="profile photo">
                 </div>
                 <div class="col-md-5">
-                    <ul>
-                        <li>{{profile.bio}}</li>
+                    <ul class="list-group">
+                        <li *ngIf="profile.bio">{{profile.bio}}</li>
+                        <li *ngIf="profile.email"><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
                     </ul>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        <span *ngIf="profile.followers">{{profile.followers}} followers</span>
+                        <span *ngIf="profile.followings">People i follow: {{profile.following}}</span>
+                        <span *ngIf="profile.public_repos">Repositories: {{profile.public_repos}}</span>
+
+                    </p>
                 </div>
             </div>
         </div>
