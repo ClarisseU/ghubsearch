@@ -1,44 +1,46 @@
-<form class="search" #searchForm='ngForm'>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="enter the github username" [(ngModel)]="username" name="username" (keyup)="fileProfile()">
-    </div>
-</form>
-
-<div *ngIf="profile">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {{profile.login}}
+<div class="container">
+    <form class="search" #searchForm='ngForm'>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="enter the github username" [(ngModel)]="username" name="username" (keyup)="fileProfile()">
         </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="{{profile.avatar_url}}" alt="profile photo">
-                </div>
-                <div class="col-md-5">
-                    <ul class="list-group">
-                        <li *ngIf="profile.bio">{{profile.bio}}</li>
-                        <li *ngIf="profile.email"><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <p>
-                        <span *ngIf="profile.followers">{{profile.followers}} followers</span>
-                        <span *ngIf="profile.followings">People i follow: {{profile.following}}</span>
-                        <span *ngIf="profile.public_repos">Repositories: {{profile.public_repos}}</span>
+    </form>
 
-                    </p>
-                    <p>
-                        <a href="{{profile.html_url}}" class="btn btn-success" target="_blank">View profile on git hub</a></p>
-                    <div class="panel panel-default">
-                        <div class="panel panel heading">
-                            <h3 class="panel-title">Repositories</h3>
-                        </div>
-                        <div class="panel panel-body" *ngFor="let repo of repos">
-                            <p class="clear-fix">
-                                {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-success" target="_blank">view this project on github</a>
+    <div *ngIf="profile">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{profile.login}}
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{profile.avatar_url}}" alt="profile photo">
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="list-group">
+                            <li *ngIf="profile.bio">{{profile.bio}}</li>
+                            <li *ngIf="profile.email"><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <span *ngIf="profile.followers">{{profile.followers}} followers</span>
+                            <span *ngIf="profile.followings">People i follow: {{profile.following}}</span>
+                            <span *ngIf="profile.public_repos">Repositories: {{profile.public_repos}}</span>
 
-                            </p>
-                            <p class="clear-fix">{{repo.description}}</p>
+                        </p>
+                        <p>
+                            <a href="{{profile.html_url}}" class="btn btn-success" target="_blank">View profile on git hub</a></p>
+                        <div class="panel panel-default">
+                            <div class="panel panel heading">
+                                <h3 class="panel-title">Repositories</h3>
+                            </div>
+                            <div class="panel panel-body" *ngFor="let repo of repos">
+                                <p class="clear-fix">
+                                    {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-success" target="_blank">view this project on github</a>
+
+                                </p>
+                                <p class="clear-fix">{{repo.description}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
