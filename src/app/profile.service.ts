@@ -17,4 +17,8 @@ private clientsecret = 'c00c3a6fae6672a448f04a1261a4cc8be6eae372';
   getInformation(){
     return this.http.get('https://api.github.com/users/'+ this.username +'?client_id=' + this.clientid + '&client_secret=' + this.clientsecret);
   }
+
+  getRepo(){
+    return this.http.get('https://api.github.com/users/'+ this.username +'/repos?client_id=' + this.clientid + '&client_secret=' + this.clientsecret);
+  }
 }
