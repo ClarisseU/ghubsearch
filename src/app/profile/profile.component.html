@@ -23,6 +23,18 @@
                     </p>
                     <p>
                         <a href="{{profile.html_url}}" class="btn btn-success" target="_blank">View profile on git hub</a></p>
+                    <div class="panel panel-default">
+                        <div class="panel panel heading">
+                            <h3 class="panel-title">Repositories</h3>
+                        </div>
+                        <div class="panel panel-body" *ngFor="let repo of repos">
+                            <p class="clear-fix">
+                                {{repo.name}} <a href="{{repo.html_url}}" class="btn btn-success" target="_blank">view this project on github</a>
+
+                            </p>
+                            <p class="clear-fix">{{repo.description}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
